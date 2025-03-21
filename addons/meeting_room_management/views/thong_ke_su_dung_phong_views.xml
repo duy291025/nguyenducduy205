@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+        <!-- View Form -->
+<record id="view_thong_ke_su_dung_phong_form" model="ir.ui.view">
+    <field name="name">thong.ke.su.dung.phong.form</field>
+    <field name="model">thong_ke_su_dung_phong</field>
+    <field name="arch" type="xml">
+        <form string="Thống kê sử dụng phòng họp">
+            <sheet>
+                <group>
+                    <field name="room_id"/>
+                    <field name="usage_count"/>
+                </group>
+            </sheet>
+        </form>
+    </field>
+</record>
+
+        <!-- View Tree -->
+    <record id="view_thong_ke_su_dung_phong_tree" model="ir.ui.view">
+        <field name="name">thong.ke.su.dung.phong.tree</field>
+        <field name="model">thong_ke_su_dung_phong</field>
+        <field name="arch" type="xml">
+            <tree string="Thống kê sử dụng phòng họp">
+                <field name="room_id"/>
+                <field name="usage_count"/>
+            </tree>
+        </field>
+    </record>
+    
+        <!-- View Biểu đồ Thống kê -->
+    <record id="view_thong_ke_su_dung_phong_graph" model="ir.ui.view">
+        <field name="name">thong.ke.su.dung.phong.graph</field>
+        <field name="model">thong_ke_su_dung_phong</field>
+        <field name="arch" type="xml">
+            <graph string="Thống kê sử dụng phòng họp" type="bar">
+                <field name="room_id" type="row"/>
+                <field name="usage_count" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <record id="action_thong_ke_su_dung_phong" model="ir.actions.act_window">
+        <field name="name">Thống kê sử dụng phòng</field>
+        <field name="res_model">thong_ke_su_dung_phong</field>
+        <field name="view_mode">tree,form,graph</field>
+    </record>
+
+</odoo>

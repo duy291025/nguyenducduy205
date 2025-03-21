@@ -1,0 +1,14 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_phong_hop,Phòng họp,model_phong_hop,,1,1,1,1
+access_phong_hop_user,Phòng họp - Người dùng,model_phong_hop,meeting_room_management.group_meeting_user,1,0,0,0
+access_phong_hop_admin,Phòng họp - Quản trị viên,model_phong_hop,meeting_room_management.group_meeting_admin,1,1,1,1
+access_dang_ky_muon_phong,access_dang_ky_muon_phong,model_dang_ky_muon_phong,meeting_room_management.group_meeting_user,1,1,1,1
+access_lich_su_muon_phong,access_lich_su_muon_phong,model_lich_su_muon_phong,meeting_room_management.group_meeting_user,1,0,0,0
+access_lich_su_muon_phong_admin,Lịch sử mượn phòng - Admin,model_lich_su_muon_phong,meeting_room_management.group_meeting_admin,1,1,1,1
+access_thong_ke_su_dung_phong_user,Access Thống kê phòng họp,model_thong_ke_su_dung_phong,base.group_user,1,0,0,0
+access_thong_ke_su_dung_phong_admin,Admin Access Thống kê phòng họp,model_thong_ke_su_dung_phong,base.group_system,1,1,1,1
+access_thiet_bi_user,Thiết bị - Người dùng,model_thiet_bi,base.group_user,1,0,0,0
+access_thiet_bi_manager,Thiết bị - Quản lý,model_thiet_bi,base.group_system,1,1,1,1
+access_lich_su_bao_tri_user,Lịch sử bảo trì - Người dùng,model_lich_su_bao_tri,base.group_user,1,0,0,0
+access_lich_su_bao_tri_manager,Lịch sử bảo trì - Quản lý,model_lich_su_bao_tri,base.group_system,1,1,1,1
+access_thiet_bi_user,access_thiet_bi_user,model_thiet_bi,,1,1,1,1

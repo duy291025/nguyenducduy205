@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+       <record id="view_du_an_rui_ro_form" model="ir.ui.view">
+        <field name="name">du_an_rui_ro</field>
+        <field name="model">du_an_rui_ro</field>
+        <field name="arch" type="xml">
+            <form string="Rủi Ro Dự Án">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="project_id"/>
+                        <field name="impact"/>
+                        <field name="mitigation_plan"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_du_an_rui_ro_tree" model="ir.ui.view">
+        <field name="name">du_an_rui_ro</field>
+        <field name="model">du_an_rui_ro</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="project_id"/>
+                <field name="impact"/>
+                <field name="mitigation_plan"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_du_an_rui_ro" model="ir.actions.act_window">
+        <field name="name">Quản lý rủi ro</field>
+        <field name="res_model">du_an_rui_ro</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    </data>
+</odoo>

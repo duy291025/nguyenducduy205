@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_dat_phong,dat_phong.dat_phong,model_dat_phong,base.group_user,1,1,1,1
+access_phong_hoc,phong_hoc.phong_hoc,model_phong_hoc,base.group_user,1,1,1,1
+access_thiet_bi_trong_phong,thiet_bi_trong_phong.thiet_bi_trong_phong,model_thiet_bi_trong_phong,base.group_user,1,1,1,1
+access_lich_su_sua_chua,lich_su_sua_chua.lich_su_sua_chua,model_lich_su_sua_chua,base.group_user,1,1,1,1

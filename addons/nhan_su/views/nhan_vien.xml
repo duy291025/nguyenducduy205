@@ -8,22 +8,29 @@
                 <form>
                     <sheet>
                         <div class="oe_read_only" style="font-size:25px">Nhân viên</div>
-                        <group col="4" string="Thông tin chung">
+                        <group col="7" string="Thông tin chung">
                             <field name="ma_dinh_danh"/>
-                            <field name="ho_va_ten"/>
+                            <field name="ten"/>
                             <field name="ngay_sinh"/>
+                            <field name="gioi_tinh"/>
+                            <field name="can_cuoc_cd"/>
                             <field name="tuoi"/>
                             <field name="que_quan"/>
                             <field name="email"/>
-                            <field name="anh" widget="image"/>
+                            <field name="so_dien_thoai"/>
+                            <field name="tinh_trang_hon_nhan"/>
+                            <field name="anh" widget="image" class="oe_avatar" options="{'size': [99, 99]}"/>
                         </group>
                         <notebook>
                             <page string="Danh sách lịch sử công tác">
                                 <field name="lich_su_cong_tac_ids"/>
                             </page>
+                    
+                            <page string="Danh sách chứng chỉ">
+                                <field name="chung_chi_bang_cap_ids"/>
+                            </page>
                         </notebook>
                     </sheet>
-                    
                 </form>
             </field>
         </record>
@@ -34,11 +41,16 @@
             <field name="arch" type="xml">
                 <tree>
                     <field name="ma_dinh_danh"/>
-                    <field name="ho_va_ten"/>
+                    <field name="ten"/>
                     <field name="ngay_sinh"/>
-                    <field name="tuoi"/>
+                    <field name="gioi_tinh"/>
+                    <field name="can_cuoc_cd"/>
+                    <field name="tuoi"/> 
                     <field name="que_quan"/>
                     <field name="email"/>
+                    <field name="so_dien_thoai"/>
+                    <field name="tinh_trang_hon_nhan"/>
+                    <field name="anh" widget="image" class="oe_avatar" options="{'size': [99, 99]}"/>
                 </tree>
             </field>
         </record>
@@ -48,11 +60,16 @@
             <field name="arch" type="xml">
                 <search>
                     <field name="ma_dinh_danh"/>
-                    <field name="ho_va_ten"/>
+                    <field name="ten"/>
                     <field name="ngay_sinh"/>
+                    <field name="gioi_tinh"/>
+                    <field name="can_cuoc_cd"/>
                     <field name="tuoi"/>
                     <field name="que_quan"/>
                     <field name="email"/>
+                    <field name="so_dien_thoai"/>
+                    <field name="tinh_trang_hon_nhan"/>
+                    <field name="anh" widget="image" class="oe_avatar" options="{'size': [99, 99]}"/>
                 </search>
             </field>
         </record>
@@ -61,9 +78,7 @@
             <field name="name">Nhân viên</field>
             <field name="res_model">nhan_vien</field>
             <field name="view_mode">tree,form</field>
-            <field name="search_view_id" ref = "nhan_vien_search"/>
+            <field name="search_view_id" ref="nhan_vien_search"/>
         </record>
     </data>
 </odoo>
-        
-    

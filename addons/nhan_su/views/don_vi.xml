@@ -9,8 +9,8 @@
                     <sheet>
                         <div class="oe_read_only" style="font-size:25px">Đơn vị</div>
                         <group col="4" string="Thông tin chung">
-                            <field name="ma_don_vi"/>
                             <field name="ten_don_vi"/>
+                            <field name="ma_don_vi"/>
                         </group>
                     </sheet>
                 </form>
@@ -22,8 +22,8 @@
             <field name="model">don_vi</field>
             <field name="arch" type="xml">
                 <tree>
-                    <field name="ma_don_vi"/>
                     <field name="ten_don_vi"/>
+                    <field name="ma_don_vi"/>
                 </tree>
             </field>
         </record>
@@ -32,8 +32,8 @@
             <field name="model">don_vi</field>
             <field name="arch" type="xml">
                 <search>
-                    <field name="ma_don_vi"/>
                     <field name="ten_don_vi"/>
+                    <field name="ma_don_vi"/>
                 </search>
             </field>
         </record>
@@ -46,5 +46,3 @@
         </record>
     </data>
 </odoo>
-        
-    

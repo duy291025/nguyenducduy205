@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Menu gốc -->
+        <menuitem
+            id="menu_root"
+            name="Quản Lý Dự Án"
+            sequence="0"/>
+
+        <!-- Quản lý dự án -->
+        <menuitem name="Dự án quản lý"
+            id="menu_du_an_quan_ly"
+            parent="menu_root"
+            sequence="1"
+            action="action_du_an_quan_ly"/>
+
+        <menuitem name="Quản lý công việc"
+            id="menu_du_an_cong_viec"
+            parent="menu_root"
+            sequence="2"
+            action="action_du_an_cong_viec"/>
+        <menuitem name="Quản lý tài nguyên"
+            id="menu_du_an_tai_nguyen"
+            parent="menu_root"
+            sequence="3"
+            action="action_du_an_tai_nguyen"/>   
+        <menuitem name="Quản lý rủi ro"
+            id="menu_du_an_rui_ro"
+            parent="menu_root"
+            sequence="3"
+            action="action_du_an_rui_ro"/> 
+        <menuitem name="Quản lý tiến độ"
+            id="menu_du_an_tien_do"
+            parent="menu_root"
+            sequence="4"
+            action="action_du_an_tien_do"/> 
+    </data>
+</odoo>

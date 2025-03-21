@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <menuitem
+            id="menu_root"
+            name="QLPHHT"
+            sequence="0"/>
+          
+        <menuitem name="Phòng học" 
+            id="menu_phong_hoc" 
+            parent="menu_root" 
+            sequence="01"
+            action= "action_phong_hoc"
+        />
+    </data>
+</odoo>

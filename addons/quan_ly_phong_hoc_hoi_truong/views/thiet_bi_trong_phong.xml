@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Form View -->
+       <record id="thiet_bi_trong_phong_form" model="ir.ui.view">
+            <field name="name">thiet_bi_trong_phong.form</field>
+            <field name="model">thiet_bi_trong_phong</field>
+            <field name="arch" type="xml">
+                <form string="Thiết bị trong phòng">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="room_id"/>
+                            <field name="status"/>
+                            <field name="maintenance_ids"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="thiet_bi_trong_phong_tree" model="ir.ui.view">
+            <field name="name">thiet_bi_trong_phong.tree</field>
+            <field name="model">thiet_bi_trong_phong</field>
+            <field name="arch" type="xml">
+                <tree string="Thiết bị trong phòng">
+                    <field name="name"/>
+                    <field name="room_id"/>
+                    <field name="status"/>
+                </tree>
+            </field>
+        </record>
+        
+        <record id="action_thiet_bi_trong_phong" model="ir.actions.act_window">
+            <field name="name">Thiết bị trong phòng</field>
+            <field name="res_model">thiet_bi_trong_phong</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+    </data>
+</odoo>

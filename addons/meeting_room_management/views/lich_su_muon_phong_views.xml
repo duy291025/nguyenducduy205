@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Form View -->
+    <record id="lich_su_muon_phong_form" model="ir.ui.view">
+        <field name="name">lich_su_muon_phong.form</field>
+        <field name="model">lich_su_muon_phong</field>
+        <field name="arch" type="xml">
+            <form string="Lịch sử mượn phòng">
+                <sheet>
+                    <group>
+                        <field name="room_id"/>
+                        <field name="requester"/>
+                        <field name="phone"/>
+                        <field name="email"/>
+                        <field name="start_time"/>
+                        <field name="end_time"/>
+                        <field name="status"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Tree View -->
+    <record id="lich_su_muon_phong_tree" model="ir.ui.view">
+        <field name="name">lich_su_muon_phong.tree</field>
+        <field name="model">lich_su_muon_phong</field>
+        <field name="arch" type="xml">
+            <tree string="Lịch sử mượn phòng">
+                <field name="room_id"/>
+                <field name="requester"/>
+                <field name="phone"/>
+                <field name="email"/>
+                <field name="start_time"/>
+                <field name="end_time"/>
+                <field name="status"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_lich_su_muon_phong" model="ir.actions.act_window">
+        <field name="name">Lịch sử mượn phòng</field>
+        <field name="res_model">lich_su_muon_phong</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+</odoo>

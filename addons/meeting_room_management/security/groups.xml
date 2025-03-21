@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- Nhóm người dùng phòng họp -->
+    <record id="group_meeting_user" model="res.groups">
+        <field name="name">Người dùng phòng họp</field>
+        <field name="category_id" ref="base.module_category_human_resources"/>  <!-- Category hợp lệ -->
+    </record>
+
+    <!-- Nhóm quản trị phòng họp -->
+    <record id="group_meeting_admin" model="res.groups">
+        <field name="name">Quản trị phòng họp</field>
+        <field name="category_id" ref="base.module_category_human_resources"/>  <!-- Category hợp lệ -->
+        <field name="implied_ids" eval="[(4, ref('group_meeting_user'))]"/>
+    </record>
+</odoo>

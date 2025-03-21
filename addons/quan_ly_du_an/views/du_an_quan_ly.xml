@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_du_an_quan_ly_form" model="ir.ui.view">
+            <field name="name">du_an_quan_ly_form</field>
+            <field name="model">du_an_quan_ly</field>
+            <field name="arch" type="xml">
+                <form string="Quản Lý Dự Án">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="description"/>
+                            <field name="start_date"/>
+                            <field name="end_date"/>
+                            <field name="status"/>
+                        </group>
+                        <group>
+                            <field name="task_ids" widget="one2many_list"/>
+                            <field name="resource_ids" widget="one2many_list"/>
+                            <field name="risk_ids" widget="one2many_list"/>
+                            <field name="progress_ids" widget="one2many_list"/>
+                            <field name="nhan_su_du_an_ids" widget="one2many_list"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_du_an_quan_ly_tree" model="ir.ui.view">
+            <field name="name">du_an_quan_ly_tree</field>
+            <field name="model">du_an_quan_ly</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="start_date"/>
+                    <field name="end_date"/>
+                    <field name="status"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_du_an_quan_ly" model="ir.actions.act_window">
+            <field name="name">Quản Lý Dự Án</field>
+            <field name="res_model">du_an_quan_ly</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+       <record id="phong_hoc_form" model="ir.ui.view">
+            <field name="name"></field>
+            <field name="model">phong_hoc</field>
+            <field name="arch" type="xml">
+                <form string="Phòng học/Hội trường">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="capacity"/>
+                            <field name="equipment_ids"/>
+                            <field name="booking_ids"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="phong_hoc_tree" model="ir.ui.view">
+            <field name="name">phong_hoc</field>
+            <field name="model">phong_hoc</field>
+            <field name="arch" type="xml">
+                <tree string="Phòng học/Hội trường">
+                    <field name="name"/>
+                    <field name="capacity"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_phong_hoc" model="ir.actions.act_window">
+            <field name="name">Phòng học</field>
+            <field name="res_model">phong_hoc</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+    </data>
+</odoo>

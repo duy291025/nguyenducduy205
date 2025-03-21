@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Form View -->
+    <record id="view_thiet_bi_form" model="ir.ui.view">
+        <field name="name">thiet_bi.form</field>
+        <field name="model">thiet_bi</field>
+        <field name="arch" type="xml">
+            <form string="Thiết bị">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="room_id"/>
+                        <field name="status"/>
+                        <field name="maintenance_count" readonly="1"/>
+                    </group>
+                    <group>
+                        <button name="action_request_maintenance" type="object" string="Yêu cầu bảo trì"
+                                class="oe_highlight" attrs="{'invisible': [('status', '!=', 'active')]}"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Tree View -->
+    <record id="view_thiet_bi_tree" model="ir.ui.view">
+        <field name="name">thiet_bi.tree</field>
+        <field name="model">thiet_bi</field>
+        <field name="arch" type="xml">
+            <tree string="Danh sách Thiết bị">
+                <field name="name"/>
+                <field name="room_id"/>
+                <field name="status"/>
+                <field name="maintenance_count"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_thiet_bi" model="ir.actions.act_window">
+        <field name="name">Thiết bị</field>
+        <field name="res_model">thiet_bi</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>

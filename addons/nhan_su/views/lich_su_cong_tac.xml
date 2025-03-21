@@ -7,13 +7,14 @@
             <field name="arch" type="xml">
                 <form>
                     <sheet>
-                        <div class="oe_read_only" style="font-size:25px">Lịch sử công tác</div>
+                        <div class="oe_read_only" style="font-size:25px">Nhân viên</div>
                         <group col="4" string="Thông tin chung">
-                            <field name="nhan_vien_id"/>
                             <field name="chuc_vu_id"/>
                             <field name="don_vi_id"/>
                             <field name="loai_chuc_vu"/>
+                            <field name="nhan_vien_id"/>
                         </group>
+                        
                     </sheet>
                 </form>
             </field>
@@ -24,10 +25,10 @@
             <field name="model">lich_su_cong_tac</field>
             <field name="arch" type="xml">
                 <tree>
-                    <field name="nhan_vien_id"/>
-                    <field name="chuc_vu_id"/>
-                    <field name="don_vi_id"/>
-                    <field name="loai_chuc_vu"/>
+                        <field name="chuc_vu_id"/>
+                        <field name="don_vi_id"/>
+                        <field name="loai_chuc_vu"/>
+                        <field name="nhan_vien_id"/>
                 </tree>
             </field>
         </record>
@@ -36,10 +37,11 @@
             <field name="model">lich_su_cong_tac</field>
             <field name="arch" type="xml">
                 <search>
-                    <field name="nhan_vien_id"/>
-                    <field name="chuc_vu_id"/>
-                    <field name="don_vi_id"/>
-                    <field name="loai_chuc_vu"/>
+                        <field name="chuc_vu_id"/>
+                        <field name="don_vi_id"/>
+                        <field name="loai_chuc_vu"/>
+                        <field name="nhan_vien_id"/>
+
                 </search>
             </field>
         </record>
@@ -52,5 +54,3 @@
         </record>
     </data>
 </odoo>
-        
-    
