@@ -39,6 +39,7 @@ Hệ thống được phát triển trên nền tảng **Odoo**, giúp dễ dàn
 và đáp ứng nhu cầu quản lý dự án trong môi trường doanh nghiệp và tổ chức giáo dục.
 
 ## 1. Giao điện ứng dụng
-
-
+<p align="center">
+  <img src="images/qlda.png" width="100%" />
+</p>
 
