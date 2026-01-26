@@ -74,4 +74,14 @@ hoạt động hiệu quả, nhất quán và phù hợp với nhu cầu quản 
 của các tổ chức và doanh nghiệp.
 ---
 © AIoTLab, Faculty of Information Technology, Dai Nam University
+---
+
+## Tham khảo & Nguồn mã nguồn
+
+Dự án được phát triển dựa trên mã nguồn tham khảo từ repository:
+
+- https://github.com/mtuan3110/TTDN-15-01-N2
+
+Nhóm đã thực hiện tùy chỉnh, mở rộng và hoàn thiện các chức năng
+phù hợp với yêu cầu của đồ án học phần và mục tiêu nghiên cứu.
 
