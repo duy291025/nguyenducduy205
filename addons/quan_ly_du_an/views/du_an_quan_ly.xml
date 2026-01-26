@@ -43,6 +43,7 @@
             <field name="name">Quản Lý Dự Án</field>
             <field name="res_model">du_an_quan_ly</field>
             <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_du_an_quan_ly_tree"/>
         </record>
     </data>
 </odoo>
