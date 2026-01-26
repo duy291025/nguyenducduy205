@@ -1,3 +1,6 @@
-![Poster](images/<img width="1132" height="388" alt="image" src="https://github.com/user-attachments/assets/604a7046-39ab-49c4-90c8-1ee9c0e8c5dd" />
-)
+<p align="center">
+  <img src="images/<img width="1132" height="388" alt="image" src="https://github.com/user-attachments/assets/85fa8adb-cae2-4666-a138-af0f1bb9d519" />
+" width="100%" />
+</p>
+
 
