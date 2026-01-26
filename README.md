@@ -42,4 +42,7 @@ và đáp ứng nhu cầu quản lý dự án trong môi trường doanh nghiệ
 <p align="center">
   <img src="images/qlda.png" width="100%" />
 </p>
+<p align="center">
+  <img src="images/tkcv.png" width="100%" />
+</p>
 
