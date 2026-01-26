@@ -72,4 +72,6 @@ Trong tương lai, hệ thống có thể được mở rộng theo hướng:
 Việc phát triển đồng bộ ba chức năng trên giúp hệ thống quản lý dự án
 hoạt động hiệu quả, nhất quán và phù hợp với nhu cầu quản lý thực tế
 của các tổ chức và doanh nghiệp.
+---
+© AIoTLab, Faculty of Information Technology, Dai Nam University
 
