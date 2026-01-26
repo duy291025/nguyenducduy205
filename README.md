@@ -49,3 +49,27 @@ và đáp ứng nhu cầu quản lý dự án trong môi trường doanh nghiệ
   <img src="images/ns.png" width="100%" />
 </p>
 
+### Hướng phát triển hệ thống
+
+Hệ thống được định hướng phát triển theo mô hình **liên kết chặt chẽ giữa
+Quản lý dự án – Quản lý công việc – Quản lý nhân sự**, trong đó ba chức năng
+này không hoạt động độc lập mà hỗ trợ và ràng buộc lẫn nhau trong suốt vòng đời dự án.
+
+Cụ thể:
+- **Quản lý dự án** đóng vai trò trung tâm, là nơi khởi tạo, theo dõi và đánh giá
+  toàn bộ quá trình thực hiện dự án.
+- **Quản lý công việc** được gắn trực tiếp với từng dự án, cho phép phân chia
+  công việc, theo dõi tiến độ, mức độ ưu tiên và trạng thái thực hiện.
+- **Quản lý nhân sự** được tích hợp vào dự án và công việc, hỗ trợ phân công
+  nhân sự phù hợp, xác định vai trò, trách nhiệm và mức độ tham gia của từng cá nhân.
+
+Trong tương lai, hệ thống có thể được mở rộng theo hướng:
+- Liên kết chặt chẽ hơn giữa tiến độ công việc và hiệu suất nhân sự
+- Tự động đánh giá hiệu quả dự án dựa trên tiến độ và nguồn lực
+- Hỗ trợ báo cáo tổng hợp theo dự án, công việc và nhân sự
+- Nâng cao khả năng phân tích và dự báo rủi ro trong quá trình thực hiện dự án
+
+Việc phát triển đồng bộ ba chức năng trên giúp hệ thống quản lý dự án
+hoạt động hiệu quả, nhất quán và phù hợp với nhu cầu quản lý thực tế
+của các tổ chức và doanh nghiệp.
+
