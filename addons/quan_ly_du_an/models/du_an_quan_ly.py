@@ -14,9 +14,18 @@ class DuAn(models.Model):
         ('cancelled', 'Đã Hủy')
     ], string='Trạng Thái', default='ongoing')
 
-    # Quan hệ One2many
-    task_ids = fields.One2many('du_an_cong_viec', 'project_id', string='Công Việc')
-    resource_ids = fields.One2many('du_an_tai_nguyen', 'project_id', string='Tài Nguyên')
-    risk_ids = fields.One2many('du_an_rui_ro', 'project_id', string='Rủi Ro')
-    nhan_su_du_an_ids = fields.One2many('du_an_quan_ly_nhan_su', 'project_id', string='Nhân sự thực hiện dự án')
-    progress_ids = fields.One2many('du_an_tien_do', 'project_id', string= 'Tiến Độ' )
+    # ==============================
+    # LIÊN KẾT MODULE KHÁC (THÊM MỚI)
+    # ==============================
+
+    task_ids = fields.One2many(
+    'du_an_cong_viec',   
+    'project_id',        
+    string='Công việc'
+    )
+
+
+    nhan_su_ids = fields.Many2many(
+        'nhan.su',
+        string='Nhân sự tham gia'
+    )

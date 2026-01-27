@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- Menu gốc -->
+        <menuitem
+            id="menu_quan_ly_cong_viec_root"
+            name="QLCV"
+            sequence="10"/>
+
+        <!-- Action -->
+        <record id="action_du_an_cong_viec" model="ir.actions.act_window">
+            <field name="name">Quản Lý Công Việc</field>
+            <field name="res_model">du_an_cong_viec</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- Menu con -->
+        <menuitem
+            id="menu_du_an_cong_viec"
+            name="Danh sách công việc"
+            parent="menu_quan_ly_cong_viec_root"
+            action="action_du_an_cong_viec"
+            sequence="1"/>
+
+    </data>
+</odoo>

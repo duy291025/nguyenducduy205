@@ -20,17 +20,13 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base'],
+    'depends': ['base','nhan_su','quan_ly_cong_viec'],
 
     # always loaded
     'data': [
         'security/ir.model.access.csv',
-        'views/du_an_cong_viec.xml',
-        'views/du_an_quan_ly_nhan_su.xml',
         'views/du_an_quan_ly.xml',
-        'views/du_an_rui_ro.xml',
-        'views/du_an_tai_nguyen.xml',
-        'views/du_an_tien_do.xml',
+        'views/du_an_quan_ly_action.xml',
         'views/menu.xml',
     ],
     # only loaded in demonstration mode

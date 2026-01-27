@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- ACTION MỞ QUẢN LÝ DỰ ÁN -->
+        <record id="action_du_an_quan_ly" model="ir.actions.act_window">
+            <field name="name">Quản Lý Dự Án</field>
+            <field name="res_model">du_an_quan_ly</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+    </data>
+</odoo>

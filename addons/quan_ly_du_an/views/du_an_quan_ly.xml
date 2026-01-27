@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data>
+
+        <!-- FORM VIEW -->
         <record id="view_du_an_quan_ly_form" model="ir.ui.view">
             <field name="name">du_an_quan_ly_form</field>
             <field name="model">du_an_quan_ly</field>
@@ -14,18 +16,21 @@
                             <field name="end_date"/>
                             <field name="status"/>
                         </group>
-                        <group>
+
+                        <group string="Công việc">
                             <field name="task_ids" widget="one2many_list"/>
-                            <field name="resource_ids" widget="one2many_list"/>
-                            <field name="risk_ids" widget="one2many_list"/>
-                            <field name="progress_ids" widget="one2many_list"/>
-                            <field name="nhan_su_du_an_ids" widget="one2many_list"/>
                         </group>
+
+                        <group string="Nhân sự">
+                            <field name="nhan_su_ids" widget="many2many_tags"/>
+                        </group>
+
                     </sheet>
                 </form>
             </field>
         </record>
 
+        <!-- TREE VIEW -->
         <record id="view_du_an_quan_ly_tree" model="ir.ui.view">
             <field name="name">du_an_quan_ly_tree</field>
             <field name="model">du_an_quan_ly</field>
@@ -39,11 +44,12 @@
             </field>
         </record>
 
+        <!-- ACTION -->
         <record id="action_du_an_quan_ly" model="ir.actions.act_window">
             <field name="name">Quản Lý Dự Án</field>
             <field name="res_model">du_an_quan_ly</field>
             <field name="view_mode">tree,form</field>
-            <field name="view_id" ref="view_du_an_quan_ly_tree"/>
         </record>
+
     </data>
 </odoo>
