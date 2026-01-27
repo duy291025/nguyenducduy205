@@ -77,5 +77,8 @@ hoạt động hiệu quả, nhất quán và phù hợp với nhu cầu quản 
 của các tổ chức và doanh nghiệp.
 
 ---
+## Nguồn tham khảo
+
+- Source code gốc: https://github.com/mtuan3110/TTDN-15-01-N2.git
 
 © AIoTLab, Faculty of Information Technology, Dai Nam University
