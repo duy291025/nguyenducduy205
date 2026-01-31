@@ -2,10 +2,9 @@
 <odoo>
     <data>
 
-        <!-- ACTION MỞ QUẢN LÝ DỰ ÁN -->
-        <record id="action_du_an_quan_ly" model="ir.actions.act_window">
+        <record id="action_quan_ly_du_an" model="ir.actions.act_window">
             <field name="name">Quản Lý Dự Án</field>
-            <field name="res_model">du_an_quan_ly</field>
+            <field name="res_model">quan_ly_du_an</field>
             <field name="view_mode">tree,form</field>
         </record>
 

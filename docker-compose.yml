@@ -1,3 +1,5 @@
+version: "3.8"
+
 services:
   db:
     image: postgres:10-alpine
@@ -19,10 +21,9 @@ services:
     ports:
       - "8069:8069"
     environment:
-      - HOST=db
-      - USER=odoo
-      - PASSWORD=odoo
+      HOST: db
+      USER: odoo
+      PASSWORD: odoo
     volumes:
       - ./addons:/mnt/extra-addons
       - ./config/odoo.conf:/etc/odoo/odoo.conf
-    command: odoo -d ttdn --db_host=db --db_user=odoo --db_password=odoo

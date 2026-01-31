@@ -1,17 +1,27 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <odoo>
-    <data>
-        <!-- Menu gốc -->
-        <menuitem
-            id="menu_root"
-            name="Quản Lý Dự Án"
-            sequence="0"/>
 
-        <!-- Quản lý dự án -->
-        <menuitem name="Dự án quản lý"
-            id="menu_du_an_quan_ly"
-            parent="menu_root"
-            sequence="1"
-            action="action_du_an_quan_ly"/>
-    </data>
+    <!-- MENU CHA -->
+    <menuitem
+        id="menu_quan_ly_du_an_root"
+        name="Quản Lý Dự Án"
+        sequence="10"
+        groups="base.group_user"/>
+
+    <!-- ACTION DỰ ÁN -->
+    <record id="action_quan_ly_du_an" model="ir.actions.act_window">
+        <field name="name">Dự Án</field>
+        <field name="res_model">quan_ly_du_an</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- MENU CON -->
+    <menuitem
+        id="menu_quan_ly_du_an"
+        name="Dự án"
+        parent="menu_quan_ly_du_an_root"
+        action="action_quan_ly_du_an"
+        sequence="1"
+        groups="base.group_user"/>
+
 </odoo>

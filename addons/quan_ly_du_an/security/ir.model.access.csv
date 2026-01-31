@@ -1,3 +1,2 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_du_an_quan_ly,du_an_quan_ly.du_an_quan_ly,model_du_an_quan_ly,base.group_user,1,1,1,1
-
+access_quan_ly_du_an,quan_ly_du_an,model_quan_ly_du_an,base.group_user,1,1,1,1

@@ -3,12 +3,13 @@
     <data>
 
         <!-- FORM VIEW -->
-        <record id="view_du_an_quan_ly_form" model="ir.ui.view">
-            <field name="name">du_an_quan_ly_form</field>
-            <field name="model">du_an_quan_ly</field>
+        <record id="view_quan_ly_du_an_form" model="ir.ui.view">
+            <field name="name">quan_ly_du_an.form</field>
+            <field name="model">quan_ly_du_an</field>
             <field name="arch" type="xml">
                 <form string="Quản Lý Dự Án">
                     <sheet>
+
                         <group>
                             <field name="name"/>
                             <field name="description"/>
@@ -17,10 +18,20 @@
                             <field name="status"/>
                         </group>
 
+                        <!-- CÔNG VIỆC -->
                         <group string="Công việc">
-                            <field name="task_ids" widget="one2many_list"/>
+                            <field name="cong_viec_ids">
+                                <tree editable="bottom">
+                                    <field name="name"/>
+                                    <field name="assigned_to"/>
+                                    <field name="deadline"/>
+                                    <field name="priority"/>
+                                    <field name="status"/>
+                                </tree>
+                            </field>
                         </group>
 
+                        <!-- NHÂN SỰ -->
                         <group string="Nhân sự">
                             <field name="nhan_su_ids" widget="many2many_tags"/>
                         </group>
@@ -31,11 +42,11 @@
         </record>
 
         <!-- TREE VIEW -->
-        <record id="view_du_an_quan_ly_tree" model="ir.ui.view">
-            <field name="name">du_an_quan_ly_tree</field>
-            <field name="model">du_an_quan_ly</field>
+        <record id="view_quan_ly_du_an_tree" model="ir.ui.view">
+            <field name="name">quan_ly_du_an.tree</field>
+            <field name="model">quan_ly_du_an</field>
             <field name="arch" type="xml">
-                <tree>
+                <tree string="Danh sách dự án">
                     <field name="name"/>
                     <field name="start_date"/>
                     <field name="end_date"/>
@@ -45,9 +56,9 @@
         </record>
 
         <!-- ACTION -->
-        <record id="action_du_an_quan_ly" model="ir.actions.act_window">
+        <record id="action_quan_ly_du_an" model="ir.actions.act_window">
             <field name="name">Quản Lý Dự Án</field>
-            <field name="res_model">du_an_quan_ly</field>
+            <field name="res_model">quan_ly_du_an</field>
             <field name="view_mode">tree,form</field>
         </record>
 
