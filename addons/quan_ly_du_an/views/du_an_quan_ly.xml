@@ -2,7 +2,7 @@
 <odoo>
     <data>
 
-        <!-- FORM VIEW -->
+        <!-- ================= FORM VIEW ================= -->
         <record id="view_quan_ly_du_an_form" model="ir.ui.view">
             <field name="name">quan_ly_du_an.form</field>
             <field name="model">quan_ly_du_an</field>
@@ -10,12 +10,19 @@
                 <form string="Quản Lý Dự Án">
                     <sheet>
 
+                        <!-- THÔNG TIN DỰ ÁN -->
                         <group>
                             <field name="name"/>
                             <field name="description"/>
                             <field name="start_date"/>
                             <field name="end_date"/>
                             <field name="status"/>
+                        </group>
+
+                        <!-- THÀNH VIÊN DỰ ÁN -->
+                        <group string="Thành viên dự án">
+                            <!-- ✅ HIỆN TẤT CẢ NHÂN SỰ -->
+                            <field name="thanh_vien_ids" widget="many2many_tags"/>
                         </group>
 
                         <!-- CÔNG VIỆC -->
@@ -31,17 +38,12 @@
                             </field>
                         </group>
 
-                        <!-- NHÂN SỰ -->
-                        <group string="Nhân sự">
-                            <field name="nhan_su_ids" widget="many2many_tags"/>
-                        </group>
-
                     </sheet>
                 </form>
             </field>
         </record>
 
-        <!-- TREE VIEW -->
+        <!-- ================= TREE VIEW ================= -->
         <record id="view_quan_ly_du_an_tree" model="ir.ui.view">
             <field name="name">quan_ly_du_an.tree</field>
             <field name="model">quan_ly_du_an</field>
@@ -55,7 +57,7 @@
             </field>
         </record>
 
-        <!-- ACTION -->
+        <!-- ================= ACTION ================= -->
         <record id="action_quan_ly_du_an" model="ir.actions.act_window">
             <field name="name">Quản Lý Dự Án</field>
             <field name="res_model">quan_ly_du_an</field>
