@@ -2,7 +2,7 @@
 <odoo>
     <data>
 
-        <!-- FORM VIEW -->
+        <!-- ================= FORM VIEW ================= -->
         <record id="view_du_an_cong_viec_form" model="ir.ui.view">
             <field name="name">du_an_cong_viec.form</field>
             <field name="model">du_an_cong_viec</field>
@@ -13,7 +13,7 @@
                             <field name="name"/>
                             <field name="project_id"/>
 
-                            <!-- 🔴 BẮT BUỘC: field kỹ thuật cho domain -->
+                            <!-- field kỹ thuật (KHÔNG domain XML) -->
                             <field name="thanh_vien_domain" invisible="1"/>
 
                             <field name="assigned_to"/>
@@ -26,12 +26,12 @@
             </field>
         </record>
 
-        <!-- TREE VIEW -->
+        <!-- ================= TREE VIEW ================= -->
         <record id="view_du_an_cong_viec_tree" model="ir.ui.view">
             <field name="name">du_an_cong_viec.tree</field>
             <field name="model">du_an_cong_viec</field>
             <field name="arch" type="xml">
-                <tree>
+                <tree string="Danh sách công việc">
                     <field name="name"/>
                     <field name="project_id"/>
                     <field name="assigned_to"/>
@@ -42,11 +42,32 @@
             </field>
         </record>
 
-        <!-- ACTION -->
+        <!-- ================= SEARCH VIEW ================= -->
+        <record id="view_du_an_cong_viec_search" model="ir.ui.view">
+            <field name="name">du_an_cong_viec.search</field>
+            <field name="model">du_an_cong_viec</field>
+            <field name="arch" type="xml">
+                <search string="Tìm kiếm công việc">
+                    <field name="name"/>
+                    <field name="project_id"/>
+                    <field name="status"/>
+
+                    <!-- 🔥 FILTER: CÔNG VIỆC CỦA TÔI -->
+                    <filter
+                        string="Công việc của tôi"
+                        name="my_tasks"
+                        domain="[('assigned_to.user_id', '=', uid)]"
+                    />
+                </search>
+            </field>
+        </record>
+
+        <!-- ================= ACTION ================= -->
         <record id="action_du_an_cong_viec" model="ir.actions.act_window">
             <field name="name">Quản Lý Công Việc</field>
             <field name="res_model">du_an_cong_viec</field>
             <field name="view_mode">tree,form</field>
+            <field name="search_view_id" ref="view_du_an_cong_viec_search"/>
         </record>
 
     </data>

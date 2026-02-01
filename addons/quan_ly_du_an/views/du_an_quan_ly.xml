@@ -17,11 +17,11 @@
                             <field name="start_date"/>
                             <field name="end_date"/>
                             <field name="status"/>
+                            <field name="progress" widget="progressbar"/>
                         </group>
 
                         <!-- THÀNH VIÊN DỰ ÁN -->
                         <group string="Thành viên dự án">
-                            <!-- ✅ HIỆN TẤT CẢ NHÂN SỰ -->
                             <field name="thanh_vien_ids" widget="many2many_tags"/>
                         </group>
 
@@ -53,6 +53,7 @@
                     <field name="start_date"/>
                     <field name="end_date"/>
                     <field name="status"/>
+                    <field name="progress" widget="progressbar"/>
                 </tree>
             </field>
         </record>

@@ -6,29 +6,52 @@ from datetime import date
 class NhanVien(models.Model):
     _name = 'nhan_vien'
     _description = 'Bảng chứa thông tin nhân viên'
-    
+    _rec_name = 'name'
+
+    # ======================
+    # THÔNG TIN CƠ BẢN
+    # ======================
     name = fields.Char("Họ và tên", required=True)
     ma_dinh_danh = fields.Char("Mã định danh", required=True)
     ngay_sinh = fields.Date("Ngày sinh", required=True)
     que_quan = fields.Char("Quê quán", required=True)
-    can_cuoc_cd = fields.Char("Căn cước công dân", required=True )
+    can_cuoc_cd = fields.Char("Căn cước công dân", required=True)
     email = fields.Char("Email", required=True)
     so_dien_thoai = fields.Char("Số điện thoại", required=True)
     tinh_trang_hon_nhan = fields.Char("Tình trạng hôn nhân", required=True)
+
+    # ======================
+    # 🔥 LIÊN KẾT USER (BẮT BUỘC CHO FILTER "CÔNG VIỆC CỦA TÔI")
+    # ======================
+    user_id = fields.Many2one(
+        'res.users',
+        string='Tài khoản đăng nhập',
+        ondelete='set null'
+    )
+
+    # ======================
+    # QUAN HỆ KHÁC
+    # ======================
     lich_su_cong_tac_ids = fields.One2many(
-        "lich_su_cong_tac",  
-        "nhan_vien_id",      
+        "lich_su_cong_tac",
+        "nhan_vien_id",
         string="Danh sách lịch sử công tác"
     )
+
     chung_chi_bang_cap_ids = fields.One2many(
-        "chung_chi_bang_cap",  
-        "nhan_vien_id",      
+        "chung_chi_bang_cap",
+        "nhan_vien_id",
         string="Danh sách chứng chỉ bằng cấp"
     )
-    tuoi = fields.Integer("Tuổi", compute="_compute_tinh_tuoi", store=True)
+
+    tuoi = fields.Integer(
+        "Tuổi",
+        compute="_compute_tinh_tuoi",
+        store=True
+    )
+
     anh = fields.Binary("Hình ảnh")
 
-    # Trường giới tính
     gioi_tinh = fields.Selection(
         [
             ('nam', 'Nam'),
@@ -37,16 +60,20 @@ class NhanVien(models.Model):
         ],
         string="Giới tính",
         required=True,
-        default='nam',  # Giá trị mặc định là 'Nam'
+        default='nam',
     )
 
+    # ======================
+    # LOGIC
+    # ======================
     @api.depends("ngay_sinh")
     def _compute_tinh_tuoi(self):
         for record in self:
             if record.ngay_sinh:
                 today = date.today()
                 record.tuoi = today.year - record.ngay_sinh.year - (
-                    (today.month, today.day) < (record.ngay_sinh.month, record.ngay_sinh.day)
+                    (today.month, today.day)
+                    < (record.ngay_sinh.month, record.ngay_sinh.day)
                 )
             else:
                 record.tuoi = 0
@@ -55,4 +82,4 @@ class NhanVien(models.Model):
     def _check_tuoi(self):
         for record in self:
             if record.tuoi < 18:
-                raise ValidationError("Đéo đủ tuổi")
+                raise ValidationError("Không đủ tuổi")
