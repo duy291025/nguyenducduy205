@@ -16,8 +16,8 @@ class CongViec(models.Model):
 
 
     assigned_to = fields.Many2one(
-        'res.users',
-        string='Người Được Giao'
+        'nhan_vien',
+        string='Nhân viên Được Giao'
     )
 
     deadline = fields.Date(string='Hạn Chót')

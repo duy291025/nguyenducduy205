@@ -7,7 +7,7 @@ class NhanVien(models.Model):
     _name = 'nhan_vien'
     _description = 'Bảng chứa thông tin nhân viên'
     
-    ten = fields.Char("Điền họ tên", required=True)
+    name = fields.Char("Họ và tên", required=True)
     ma_dinh_danh = fields.Char("Mã định danh", required=True)
     ngay_sinh = fields.Date("Ngày sinh", required=True)
     que_quan = fields.Char("Quê quán", required=True)
