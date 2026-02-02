@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_qlda_chat_message_user,qlda.chat.message user,model_qlda_chat_message,base.group_user,1,1,1,1
+access_qlda_chat_memory_user,qlda.chat.memory user,model_qlda_chat_memory,base.group_user,1,1,1,1
+access_qlda_chat_knowledge_user,qlda.chat.knowledge user,model_qlda_chat_knowledge,base.group_user,1,0,0,0
+access_qlda_chat_knowledge_admin,qlda.chat.knowledge admin,model_qlda_chat_knowledge,base.group_system,1,1,1,1

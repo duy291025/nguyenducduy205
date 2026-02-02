@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!-- ACTION -->
+    <record id="action_qlda_chat_ai" model="ir.actions.act_window">
+        <field name="name">Chat AI</field>
+        <field name="res_model">qlda.chat.message</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- MENU CHA GẮN VÀO APP -->
+    <menuitem
+        id="menu_qlda_chat_root"
+        name="Chat AI"
+        parent="base.menu_administration"
+        sequence="90"/>
+
+    <!-- MENU CON -->
+    <menuitem
+        id="menu_qlda_chat_ai"
+        name="Trò chuyện AI"
+        parent="menu_qlda_chat_root"
+        action="action_qlda_chat_ai"
+        sequence="1"/>
+
+</odoo>

@@ -1,0 +1,108 @@
+/* ========== ICON ========== */
+.qlda-chat-icon {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: #875A7B;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10000;
+}
+.qlda-chat-icon img {
+    width: 28px;
+    height: 28px;
+}
+
+/* ========== SIDEBAR ========== */
+.qlda-chat-popup {
+    position: fixed;
+    top: 0;
+    right: -420px;
+    width: 420px;
+    height: 100vh;
+    background: #ffffff;
+    display: flex;
+    flex-direction: column;
+    box-shadow: -4px 0 20px rgba(0,0,0,0.25);
+    transition: right 0.3s ease;
+    z-index: 9999;
+}
+
+.qlda-chat-popup.open {
+    right: 0;
+}
+
+/* ========== HEADER ========== */
+.qlda-chat-header {
+    height: 48px;
+    background: #875A7B;
+    color: #fff;
+    padding: 0 14px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-weight: 600;
+}
+
+/* ========== BODY ========== */
+.qlda-chat-body {
+    flex: 1;
+    padding: 12px;
+    overflow-y: auto;
+    background: #f9f9fb;
+}
+
+/* ========== FOOTER ========== */
+.qlda-chat-footer {
+    display: flex;
+    gap: 8px;
+    padding: 10px;
+    border-top: 1px solid #ddd;
+}
+
+.qlda-chat-footer input {
+    flex: 1;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.qlda-chat-footer button {
+    background: #875A7B;
+    color: white;
+    border: none;
+    padding: 0 14px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* ========== MESSAGE ========== */
+.msg {
+    margin-bottom: 8px;
+    padding: 8px 10px;
+    border-radius: 6px;
+    max-width: 90%;
+    line-height: 1.4;
+    font-size: 14px;
+}
+
+.msg.user {
+    background: #e0e7ff;
+    align-self: flex-end;
+    text-align: right;
+}
+
+.msg.ai {
+    background: #ede9fe;
+    align-self: flex-start;
+}
+
+.msg.error {
+    background: #fee2e2;
+    color: #991b1b;
+}

@@ -12,6 +12,34 @@
     </record>
 
     <!-- =========================
+         ACTIONS CLICK CARD
+    ========================== -->
+    <record id="action_open_nhan_su" model="ir.actions.act_window">
+        <field name="name">Nhân sự</field>
+        <field name="res_model">nhan_vien</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="action_open_du_an" model="ir.actions.act_window">
+        <field name="name">Dự án</field>
+        <field name="res_model">quan_ly_du_an</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="action_open_cong_viec" model="ir.actions.act_window">
+        <field name="name">Công việc</field>
+        <field name="res_model">du_an_cong_viec</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="action_open_cong_viec_hoan_thanh" model="ir.actions.act_window">
+        <field name="name">Công việc hoàn thành</field>
+        <field name="res_model">du_an_cong_viec</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[('trang_thai','=','hoan_thanh')]</field>
+    </record>
+
+    <!-- =========================
          KANBAN DASHBOARD VIEW
     ========================== -->
     <record id="view_dashboard_quan_ly_kanban" model="ir.ui.view">
@@ -19,13 +47,10 @@
         <field name="model">dashboard.quan.ly</field>
         <field name="arch" type="xml">
 
-            <!-- ❌ KHÔNG js_class -->
-            <kanban
-                create="false"
-                delete="false"
-                class="o_kanban_dashboard o_dashboard_fullwidth">
+            <kanban create="false" delete="false"
+                    class="o_kanban_dashboard o_dashboard_fullwidth">
 
-                <!-- ===== FIELDS ===== -->
+                <!-- FIELDS -->
                 <field name="tong_nhan_su"/>
                 <field name="tong_du_an"/>
                 <field name="tong_cong_viec"/>
@@ -36,66 +61,69 @@
 
                         <div class="o_kanban_card dashboard-wrapper">
 
-                            <!-- ===== TITLE ===== -->
+                            <!-- TITLE -->
                             <div class="text-center mb-4">
                                 <h2>📊 DASHBOARD TỔNG QUAN</h2>
                             </div>
 
-                            <!-- ===== KPI GRID ===== -->
+                            <!-- KPI GRID -->
                             <div class="dashboard-grid mb-5">
 
-                                <button type="object"
-                                        name="action_open_nhan_su"
-                                        class="dashboard-card bg-info o_dashboard_btn">
+                                <!-- NHÂN SỰ -->
+                                <div class="dashboard-card bg-info o_kanban_global_click"
+                                     type="action"
+                                     name="%(action_open_nhan_su)d">
                                     <i class="fa fa-users"/>
                                     <div class="value">
-                                        <t t-esc="record.tong_nhan_su.value"/>
+                                        <t t-esc="record.tong_nhan_su.raw_value"/>
                                     </div>
                                     <div class="label">Nhân sự</div>
-                                </button>
+                                </div>
 
-                                <button type="object"
-                                        name="action_open_du_an"
-                                        class="dashboard-card bg-primary o_dashboard_btn">
+                                <!-- DỰ ÁN -->
+                                <div class="dashboard-card bg-primary o_kanban_global_click"
+                                     type="action"
+                                     name="%(action_open_du_an)d">
                                     <i class="fa fa-folder-open"/>
                                     <div class="value">
-                                        <t t-esc="record.tong_du_an.value"/>
+                                        <t t-esc="record.tong_du_an.raw_value"/>
                                     </div>
                                     <div class="label">Dự án</div>
-                                </button>
+                                </div>
 
-                                <button type="object"
-                                        name="action_open_cong_viec"
-                                        class="dashboard-card bg-warning o_dashboard_btn">
+                                <!-- CÔNG VIỆC -->
+                                <div class="dashboard-card bg-warning o_kanban_global_click"
+                                     type="action"
+                                     name="%(action_open_cong_viec)d">
                                     <i class="fa fa-tasks"/>
                                     <div class="value">
-                                        <t t-esc="record.tong_cong_viec.value"/>
+                                        <t t-esc="record.tong_cong_viec.raw_value"/>
                                     </div>
                                     <div class="label">Công việc</div>
-                                </button>
+                                </div>
 
-                                <button type="object"
-                                        name="action_open_cong_viec_hoan_thanh"
-                                        class="dashboard-card bg-success o_dashboard_btn">
+                                <!-- HOÀN THÀNH -->
+                                <div class="dashboard-card bg-success o_kanban_global_click"
+                                     type="action"
+                                     name="%(action_open_cong_viec_hoan_thanh)d">
                                     <i class="fa fa-check-circle"/>
                                     <div class="value">
-                                        <t t-esc="record.cong_viec_hoan_thanh.value"/>
+                                        <t t-esc="record.cong_viec_hoan_thanh.raw_value"/>
                                     </div>
                                     <div class="label">Hoàn thành</div>
-                                </button>
+                                </div>
 
                             </div>
 
-                            <!-- ===== CHART ===== -->
+                            <!-- CHART -->
                             <div class="card p-4 shadow-sm">
                                 <h4 class="mb-3">📈 Biểu đồ thống kê</h4>
 
                                 <div class="o_dashboard_chart"
-                                     t-att-data-nhan-su="record.tong_nhan_su.value"
-                                     t-att-data-du-an="record.tong_du_an.value"
-                                     t-att-data-cong-viec="record.tong_cong_viec.value"
-                                     t-att-data-hoan-thanh="record.cong_viec_hoan_thanh.value">
-
+                                     t-att-data-nhan-su="record.tong_nhan_su.raw_value"
+                                     t-att-data-du-an="record.tong_du_an.raw_value"
+                                     t-att-data-cong-viec="record.tong_cong_viec.raw_value"
+                                     t-att-data-hoan-thanh="record.cong_viec_hoan_thanh.raw_value">
                                     <canvas id="dashboard_bar_chart" height="120"/>
                                 </div>
                             </div>
