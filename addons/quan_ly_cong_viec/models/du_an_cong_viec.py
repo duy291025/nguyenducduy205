@@ -6,13 +6,7 @@ class CongViec(models.Model):
     _name = 'du_an_cong_viec'
     _description = 'Công Việc Dự Án'
 
-    # =========================
-    # THÔNG TIN CƠ BẢN
-    # =========================
-    name = fields.Char(
-        string='Tên Công Việc',
-        required=True
-    )
+    name = fields.Char('Tên Công Việc', required=True)
 
     project_id = fields.Many2one(
         'quan_ly_du_an',
@@ -26,9 +20,7 @@ class CongViec(models.Model):
         string='Nhân viên Được Giao'
     )
 
-    deadline = fields.Date(
-        string='Hạn Chót'
-    )
+    deadline = fields.Date('Hạn Chót')
 
     priority = fields.Selection(
         [
@@ -36,7 +28,6 @@ class CongViec(models.Model):
             ('medium', 'Trung Bình'),
             ('high', 'Cao')
         ],
-        string='Mức Độ Ưu Tiên',
         default='medium'
     )
 
@@ -46,29 +37,11 @@ class CongViec(models.Model):
             ('in_progress', 'Đang Thực Hiện'),
             ('done', 'Hoàn Thành')
         ],
-        string='Trạng Thái',
         default='to_do'
     )
 
     # =========================
-    # FIELD KỸ THUẬT (KHÔNG STORE)
-    # =========================
-    thanh_vien_domain = fields.Many2many(
-        'nhan_vien',
-        compute='_compute_thanh_vien_domain',
-        store=False
-    )
-
-    # =========================
-    # COMPUTE DOMAIN
-    # =========================
-    @api.depends('project_id')
-    def _compute_thanh_vien_domain(self):
-        for rec in self:
-            rec.thanh_vien_domain = rec.project_id.thanh_vien_ids
-
-    # =========================
-    # DOMAIN ĐỘNG TRÊN FORM
+    # DOMAIN NHÂN VIÊN
     # =========================
     @api.onchange('project_id')
     def _onchange_project_id(self):
@@ -80,14 +53,9 @@ class CongViec(models.Model):
                     ]
                 }
             }
-        return {
-            'domain': {
-                'assigned_to': []
-            }
-        }
 
     # =========================
-    # RÀNG BUỘC DATABASE
+    # RÀNG BUỘC NHÂN VIÊN
     # =========================
     @api.constrains('assigned_to', 'project_id')
     def _check_assigned_to(self):
@@ -100,3 +68,44 @@ class CongViec(models.Model):
                 raise ValidationError(
                     'Nhân viên được giao KHÔNG thuộc dự án này!'
                 )
+
+    # =========================
+    # ❌ CHẶN DỰ ÁN ĐÃ HỦY (ĐÚNG CÁCH)
+    # =========================
+    @api.model
+    def create(self, vals):
+        project = self.env['quan_ly_du_an'].browse(vals.get('project_id'))
+        if project.status == 'cancelled':
+            raise ValidationError(
+                'Không thể tạo công việc khi dự án đã bị HỦY!'
+            )
+
+        rec = super().create(vals)
+        rec.project_id._compute_progress()
+        return rec
+
+    def write(self, vals):
+        for rec in self:
+            if rec.project_id.status == 'cancelled':
+                raise ValidationError(
+                    'Không thể chỉnh sửa công việc khi dự án đã bị HỦY!'
+                )
+
+        res = super().write(vals)
+
+        if 'status' in vals:
+            self.mapped('project_id')._compute_progress()
+
+        return res
+
+    def unlink(self):
+        projects = self.mapped('project_id')
+        for p in projects:
+            if p.status == 'cancelled':
+                raise ValidationError(
+                    'Không thể xóa công việc khi dự án đã bị HỦY!'
+                )
+
+        res = super().unlink()
+        projects._compute_progress()
+        return res

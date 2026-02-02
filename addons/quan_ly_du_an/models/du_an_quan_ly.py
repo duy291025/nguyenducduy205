@@ -6,25 +6,10 @@ class DuAn(models.Model):
     _description = 'Quản Lý Dự Án'
     _rec_name = 'name'
 
-    # =========================
-    # THÔNG TIN DỰ ÁN
-    # =========================
-    name = fields.Char(
-        string='Tên Dự Án',
-        required=True
-    )
-
-    description = fields.Text(
-        string='Mô Tả'
-    )
-
-    start_date = fields.Date(
-        string='Ngày Bắt Đầu'
-    )
-
-    end_date = fields.Date(
-        string='Ngày Kết Thúc'
-    )
+    name = fields.Char(string='Tên Dự Án', required=True)
+    description = fields.Text(string='Mô Tả')
+    start_date = fields.Date(string='Ngày Bắt Đầu')
+    end_date = fields.Date(string='Ngày Kết Thúc')
 
     status = fields.Selection(
         [
@@ -36,18 +21,12 @@ class DuAn(models.Model):
         default='ongoing'
     )
 
-    # =========================
-    # LIÊN KẾT CÔNG VIỆC
-    # =========================
     cong_viec_ids = fields.One2many(
         'du_an_cong_viec',
         'project_id',
         string='Công Việc'
     )
 
-    # =========================
-    # THÀNH VIÊN DỰ ÁN
-    # =========================
     thanh_vien_ids = fields.Many2many(
         'nhan_vien',
         'nhan_vien_quan_ly_du_an_rel',
@@ -56,31 +35,39 @@ class DuAn(models.Model):
         string='Nhân sự tham gia'
     )
 
-    # =========================
-    # TIẾN ĐỘ (%)
-    # =========================
     progress = fields.Float(
         string='Tiến độ (%)',
         compute='_compute_progress'
     )
 
     # =========================
-    # COMPUTE PROGRESS (AN TOÀN 100%)
+    # COMPUTE PROGRESS (CHUẨN NGHIỆP VỤ)
     # =========================
+    @api.depends('cong_viec_ids.status', 'status')
     def _compute_progress(self):
-        Task = self.env['du_an_cong_viec']
-
         for rec in self:
-            tasks = Task.search([
-                ('project_id', '=', rec.id)
-            ])
 
-            if not tasks:
+            # ❌ Dự án đã hủy → luôn 0%
+            if rec.status == 'cancelled':
                 rec.progress = 0.0
                 continue
 
-            done_tasks = tasks.filtered(
-                lambda t: t.status == 'done'
-            )
+            tasks = rec.cong_viec_ids
 
-            rec.progress = (len(done_tasks) / len(tasks)) * 100
+            # ❌ Không có công việc
+            if not tasks:
+                rec.progress = 0.0
+                rec.status = 'ongoing'
+                continue
+
+            # ✅ Đếm công việc hoàn thành
+            done_tasks = tasks.filtered(lambda t: t.status == 'done')
+
+            percent = (len(done_tasks) / len(tasks)) * 100
+            rec.progress = round(percent, 2)
+
+            # 🔁 TỰ ĐỘNG ĐỒNG BỘ TRẠNG THÁI
+            if percent == 100:
+                rec.status = 'completed'
+            else:
+                rec.status = 'ongoing'

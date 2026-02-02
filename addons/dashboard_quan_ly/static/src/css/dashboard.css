@@ -1,42 +1,111 @@
-/* Dashboard tổng quan */
+/* =========================================
+   DASHBOARD KPI – ODOO 15 (FIX TRÀN GRID)
+========================================= */
 
-.o_kanban_dashboard .o_kanban_card {
-    border-radius: 8px;
-    padding: 16px;
-    background: #ffffff;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+/* ===== FULL WIDTH ===== */
+.o_dashboard_fullwidth,
+.o_dashboard_fullwidth .o_kanban_renderer,
+.o_dashboard_fullwidth .o_kanban_view,
+.o_dashboard_fullwidth .o_kanban_view > div {
+    width: 100% !important;
+    max-width: 100% !important;
 }
 
-.o_kanban_dashboard .o_kanban_header {
+.o_dashboard_fullwidth .o_kanban_renderer {
+    padding: 0 !important;
+}
+
+/* ===== WRAPPER ===== */
+.dashboard-wrapper {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 24px;
+    box-sizing: border-box;
+}
+
+/* ===== GRID (QUAN TRỌNG) ===== */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr)); /* 🔥 FIX TRÀN */
+    gap: 24px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* ===== CARD ===== */
+.dashboard-card {
+    width: 100%;                  /* 🔥 CHIẾM ĐỦ CỘT */
+    height: 200px;
+
+    border-radius: 20px;
+    padding: 20px;
+    color: #ffffff;
+
+    display: flex !important;     /* 🔥 GHI ĐÈ BUTTON ODOO */
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 24px rgba(0,0,0,0.14);
+
+    min-width: 0;                 /* 🔥 FIX CỨNG */
+}
+
+.dashboard-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 34px rgba(0,0,0,0.26);
+}
+
+/* ===== ICON ===== */
+.dashboard-card i {
+    font-size: 42px;
+    opacity: 0.95;
+}
+
+/* ===== VALUE ===== */
+.dashboard-card .value {
+    font-size: 38px;
+    font-weight: 700;
+    line-height: 1;
+}
+
+/* ===== LABEL ===== */
+.dashboard-card .label {
     font-size: 16px;
-    text-align: center;
-    margin-bottom: 12px;
-    color: #1f2937;
-}
-
-.o_kanban_dashboard .o_stat_box {
-    padding: 12px;
-    border-radius: 6px;
-    transition: all 0.2s ease;
-    cursor: default;
-}
-
-.o_kanban_dashboard .o_stat_box:hover {
-    background-color: #f3f4f6;
-}
-
-.o_kanban_dashboard .o_stat_value {
-    display: block;
-    font-size: 28px;
     font-weight: 600;
-    color: #111827;
+    opacity: 0.95;
 }
 
-.o_kanban_dashboard .o_stat_text {
-    font-size: 13px;
-    color: #6b7280;
+/* ===== COLORS ===== */
+.bg-info {
+    background: linear-gradient(135deg, #06b6d4, #0891b2);
 }
 
-.o_kanban_dashboard hr {
-    margin: 12px 0;
+.bg-primary {
+    background: linear-gradient(135deg, #6366f1, #4f46e5);
+}
+
+.bg-warning {
+    background: linear-gradient(135deg, #f59e0b, #d97706);
+}
+
+.bg-success {
+    background: linear-gradient(135deg, #22c55e, #16a34a);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1200px) {
+    .dashboard-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .dashboard-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
 }
