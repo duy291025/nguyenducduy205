@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!-- ACTION -->
+    <record id="action_dashboard_quan_ly" model="ir.actions.act_window">
+        <field name="name">Dashboard Tổng Quan</field>
+        <field name="res_model">dashboard.quan.ly</field>
+        <field name="view_mode">kanban</field>
+    </record>
+
+    <!-- KANBAN VIEW -->
+    <record id="view_dashboard_quan_ly_kanban" model="ir.ui.view">
+        <field name="name">dashboard.quan.ly.kanban</field>
+        <field name="model">dashboard.quan.ly</field>
+        <field name="arch" type="xml">
+
+            <kanban create="false" delete="false"
+                    class="o_kanban_dashboard o_kanban_small_column">
+
+                <!-- 🔥 BẮT BUỘC KHAI BÁO FIELD -->
+                <field name="tong_nhan_su"/>
+                <field name="tong_du_an"/>
+                <field name="tong_cong_viec"/>
+                <field name="du_an_dang_lam"/>
+                <field name="cong_viec_hoan_thanh"/>
+
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="o_kanban_card">
+
+                            <div class="o_kanban_header">
+                                <strong>TỔNG QUAN HỆ THỐNG</strong>
+                            </div>
+
+                            <div class="o_kanban_content">
+                                <div class="row text-center">
+
+                                    <div class="col-4 o_stat_box">
+                                        <span class="o_stat_value">
+                                            <t t-esc="record.tong_nhan_su.value"/>
+                                        </span>
+                                        <span class="o_stat_text">Nhân sự</span>
+                                    </div>
+
+                                    <div class="col-4 o_stat_box">
+                                        <span class="o_stat_value">
+                                            <t t-esc="record.tong_du_an.value"/>
+                                        </span>
+                                        <span class="o_stat_text">Dự án</span>
+                                    </div>
+
+                                    <div class="col-4 o_stat_box">
+                                        <span class="o_stat_value">
+                                            <t t-esc="record.tong_cong_viec.value"/>
+                                        </span>
+                                        <span class="o_stat_text">Công việc</span>
+                                    </div>
+
+                                </div>
+
+                                <hr/>
+
+                                <div class="row text-center">
+
+                                    <div class="col-6 o_stat_box text-success">
+                                        <span class="o_stat_value">
+                                            <t t-esc="record.du_an_dang_lam.value"/>
+                                        </span>
+                                        <span class="o_stat_text">Dự án đang làm</span>
+                                    </div>
+
+                                    <div class="col-6 o_stat_box text-primary">
+                                        <span class="o_stat_value">
+                                            <t t-esc="record.cong_viec_hoan_thanh.value"/>
+                                        </span>
+                                        <span class="o_stat_text">CV hoàn thành</span>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </t>
+                </templates>
+
+            </kanban>
+        </field>
+    </record>
+
+</odoo>

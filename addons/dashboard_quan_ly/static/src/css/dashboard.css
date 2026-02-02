@@ -1,0 +1,42 @@
+/* Dashboard tổng quan */
+
+.o_kanban_dashboard .o_kanban_card {
+    border-radius: 8px;
+    padding: 16px;
+    background: #ffffff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.o_kanban_dashboard .o_kanban_header {
+    font-size: 16px;
+    text-align: center;
+    margin-bottom: 12px;
+    color: #1f2937;
+}
+
+.o_kanban_dashboard .o_stat_box {
+    padding: 12px;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+    cursor: default;
+}
+
+.o_kanban_dashboard .o_stat_box:hover {
+    background-color: #f3f4f6;
+}
+
+.o_kanban_dashboard .o_stat_value {
+    display: block;
+    font-size: 28px;
+    font-weight: 600;
+    color: #111827;
+}
+
+.o_kanban_dashboard .o_stat_text {
+    font-size: 13px;
+    color: #6b7280;
+}
+
+.o_kanban_dashboard hr {
+    margin: 12px 0;
+}
