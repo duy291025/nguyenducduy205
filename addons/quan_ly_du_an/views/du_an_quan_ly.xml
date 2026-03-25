@@ -2,48 +2,53 @@
 <odoo>
     <data>
 
-        <!-- ================= FORM VIEW ================= -->
         <record id="view_quan_ly_du_an_form" model="ir.ui.view">
             <field name="name">quan_ly_du_an.form</field>
             <field name="model">quan_ly_du_an</field>
             <field name="arch" type="xml">
                 <form string="Quản Lý Dự Án">
+                    <header>
+                        <field name="status" widget="statusbar" options="{'clickable': '1'}"/>
+                    </header>
                     <sheet>
+                        <div class="oe_title">
+                            <label for="name" string="Tên Dự Án" class="oe_edit_only"/>
+                            <h1>
+                                <field name="name" placeholder="Ví dụ: Thiết kế Website bán hàng..."/>
+                            </h1>
+                        </div>
 
-                        <!-- THÔNG TIN DỰ ÁN -->
                         <group>
-                            <field name="name"/>
-                            <field name="description"/>
-                            <field name="start_date"/>
-                            <field name="end_date"/>
-                            <field name="status"/>
-                            <field name="progress" widget="progressbar"/>
+                            <group string="Thông tin chung">
+                                <field name="description" placeholder="Mô tả ngắn gọn mục tiêu..."/>
+                                <field name="start_date"/>
+                                <field name="end_date"/>
+                            </group>
+                            <group string="Tiến độ">
+                                <field name="progress" widget="progressbar"/>
+                            </group>
                         </group>
 
-                        <!-- THÀNH VIÊN DỰ ÁN -->
-                        <group string="Thành viên dự án">
-                            <field name="thanh_vien_ids" widget="many2many_tags"/>
+                        <group string="Nhân sự tham gia">
+                            <field name="thanh_vien_ids" widget="many2many_tags" placeholder="Chọn nhân viên..."/>
                         </group>
 
-                        <!-- CÔNG VIỆC -->
-                        <group string="Công việc">
+                        <group string="Chi tiết công việc">
                             <field name="cong_viec_ids">
                                 <tree editable="bottom">
                                     <field name="name"/>
                                     <field name="assigned_to"/>
                                     <field name="deadline"/>
                                     <field name="priority"/>
-                                    <field name="status"/>
+                                    <field name="status" widget="selection"/>
                                 </tree>
                             </field>
                         </group>
-
                     </sheet>
                 </form>
             </field>
         </record>
 
-        <!-- ================= TREE VIEW ================= -->
         <record id="view_quan_ly_du_an_tree" model="ir.ui.view">
             <field name="name">quan_ly_du_an.tree</field>
             <field name="model">quan_ly_du_an</field>
@@ -52,17 +57,25 @@
                     <field name="name"/>
                     <field name="start_date"/>
                     <field name="end_date"/>
-                    <field name="status"/>
+                    <field name="status" 
+                           widget="badge" 
+                           decoration-info="status == 'ongoing'" 
+                           decoration-success="status == 'completed'" 
+                           decoration-danger="status == 'cancelled'"/>
                     <field name="progress" widget="progressbar"/>
                 </tree>
             </field>
         </record>
 
-        <!-- ================= ACTION ================= -->
         <record id="action_quan_ly_du_an" model="ir.actions.act_window">
             <field name="name">Quản Lý Dự Án</field>
             <field name="res_model">quan_ly_du_an</field>
             <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Chưa có dự án nào được tạo.
+                </p>
+            </field>
         </record>
 
     </data>

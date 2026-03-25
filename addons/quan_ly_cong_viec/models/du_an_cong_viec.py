@@ -1,7 +1,6 @@
 from odoo import models, fields, api
 from odoo.exceptions import ValidationError
 
-
 class CongViec(models.Model):
     _name = 'du_an_cong_viec'
     _description = 'Công Việc Dự Án'

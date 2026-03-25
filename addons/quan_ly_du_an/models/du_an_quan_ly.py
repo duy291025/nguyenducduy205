@@ -19,6 +19,7 @@ class DuAn(models.Model):
         ],
         string='Trạng Thái',
         default='ongoing'
+        
     )
 
     cong_viec_ids = fields.One2many(

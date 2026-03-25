@@ -12,7 +12,6 @@
 
     'data': [
         'security/ir.model.access.csv',
-        'data/dashboard_data.xml',
         'views/dashboard_views.xml',
         'views/menu.xml',
     ],
@@ -20,7 +19,7 @@
     'assets': {
         'web.assets_backend': [
             # ✅ Chart.js nội bộ Odoo 15
-            'web/static/lib/Chart/Chart.js',
+            'https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js',
 
             # CSS
             'dashboard_quan_ly/static/src/css/dashboard.css',
