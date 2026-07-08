@@ -6,7 +6,7 @@
 
 ## Thông Tin Sinh Viên
 
-- **Họ và tên:** Nguyễn Đức Duy
+- **Họ và tên:** Nguyễn Đức Duy, Đào Đình Chí, Nguyễn Minh Quang
 - **Đề tài:** Quản lý dự án + Quản lý công việc
 
 ## Công Nghệ Sử Dụng
