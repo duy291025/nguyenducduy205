@@ -7,7 +7,7 @@
 ## Thông Tin Sinh Viên
 
 - **Họ và tên:** Nguyễn Đức Duy
-- **Đề tài:** Xây dựng hệ thống ERP quản lý dự án trên nền tảng Odoo
+- **Đề tài:** Quản lý dự án + Quản lý công việc
 
 ## Công Nghệ Sử Dụng
 
