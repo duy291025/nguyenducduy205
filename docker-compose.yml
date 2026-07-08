@@ -9,7 +9,7 @@ services:
       POSTGRES_USER: odoo
       POSTGRES_PASSWORD: odoo
     volumes:
-      - ./data/postgres:/var/lib/postgresql/data
+      - postgres_data:/var/lib/postgresql/data
     ports:
       - "5431:5432"
 
@@ -27,3 +27,6 @@ services:
     volumes:
       - ./addons:/mnt/extra-addons
       - ./config/odoo.conf:/etc/odoo/odoo.conf
+
+volumes:
+  postgres_data:
